@@ -16,8 +16,9 @@ COPY . .
 # Copy Nginx configuration
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# Expose ports
+# Expose necessary ports
 EXPOSE 80 8000
 
-# Start Nginx & FastAPI
-CMD service nginx start && uvicorn main:app --host 0.0.0.0 --port 8000
+# Start FastAPI & Nginx properly
+CMD uvicorn main:app --host 0.0.0.0 --port 8000 & nginx -g 'daemon off;'
+
