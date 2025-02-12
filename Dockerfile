@@ -20,4 +20,4 @@ COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80 8000
 
 # Start Nginx & FastAPI
-CMD service nginx start && uvicorn main:app --host 127.0.0.1 --port 8000
+CMD service nginx start && uvicorn main:app --host 0.0.0.0 --port 8000
