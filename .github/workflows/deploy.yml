@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Trigger Railway Deployment via Webhook
         run: |
-          curl -X POST "${{ secrets.RAILWAY_DEPLOYMENT_WEBHOOK }}"
+          curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"
