@@ -24,5 +24,6 @@ jobs:
             git pull origin main
             source venv/bin/activate
             pip install -r requirements.txt
-            sudo systemctl daemon-reload
-            sudo systemctl restart uvicorn.service
+            pkill -f 'uvicorn main:app' || true
+            sudo systemctl restart fastapi.service
+            python3 -m uvicorn main:app --host 0.0.0.0 --port 8000
